@@ -14,5 +14,7 @@ This repository serves as a centralized hub for configuring, extending, and orch
 To use these configurations, symlink the relevant files to your global config directories or copy them into your project-specific `.ai/` or `.github/` folders.
 
 ## Contributing
-
 // Add a link to CONTRIBUTING.md
+
+## TODO
+- Add testing scripts for skills. Use `promptfoo` or https://github.com/mgechev/skillgrade

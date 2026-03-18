@@ -1,0 +1,36 @@
+# Gemini Ignore Template
+# Common patterns to exclude from Gemini CLI context
+
+# Examples - uncomment to apply
+# 1. Exclude your /packages/ directory and all subdirectories
+#/packages/
+# 2. Exclude your apikeys.txt file
+#apikeys.txt
+# 3. Exclude all .md files except README.md
+#*.md
+#!README.md
+
+# IDEs and Editors
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Dependencies and Build
+node_modules/
+dist/
+build/
+target/
+vendor/
+.venv/
+env/
+__pycache__/
+
+# Logs and Temp
+logs/
+*.log
+tmp/
+
+# OS Files
+.DS_Store
+Thumbs.db

@@ -4,9 +4,9 @@ This repository serves as a centralized hub for configuring, extending, and orch
 
 ## Core Directories
 
-- **[Claude Code](.claude/)**: Configurations and custom tools for Anthropic's `claude` CLI.
-- **[Gemini](./.gemini/)**: Specialized skills, `.geminiignore` patterns, and project-specific instructions for Gemini CLI.
-- **[GitHub Copilot](./.github/)**: Workspace-level instructions (`.github/copilot-instructions.md`) and configuration for Copilot Extensions.
+- **[Claude Code](claude/.claude/)**: Configurations and custom tools for Anthropic's `claude` CLI.
+- **[Gemini](gemini/.gemini/)**: Specialized skills, `.geminiignore` patterns, and project-specific instructions for Gemini CLI.
+- **[GitHub Copilot](github/.github/)**: Workspace-level instructions (`.github/copilot-instructions.md`) and configuration for Copilot Extensions.
 - **[Common](./common/)**: Shared prompt templates, cross-platform scripts, and universal skills
 
 ## Usage

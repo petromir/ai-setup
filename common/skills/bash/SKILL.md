@@ -7,7 +7,7 @@ description: Expert guidance for writing robust, maintainable, and "Clean Code" 
 
 This skill provides expert procedural guidance for writing shell scripts that are as maintainable and robust as any other code. Adhere to these principles whenever working with Bash.
 
-## 1. Robustness & Debugging
+## Robustness & Debugging
 
 - Strict Mode: Always include at the start of every script to fail fast and prevent silent errors.
 ```bash
@@ -22,7 +22,7 @@ set -o pipefail  # don't hide errors within pipes
 
 - Debug tracing - Use `bash -x script.sh` or `set -x` for execution tracing.
 
-## 2. General Principles
+## General Principles
 
 - Clean Code - Principles of Clean Code apply to Bash. Prioritize readability.
 
@@ -61,7 +61,7 @@ popd
 
 - Background Processes - Use `nohup foo | cat &` if `foo` must be started from a terminal and run in the background.
 
-## 3. Variable Management
+## Variable Management
 
 - Scoping - Prefer `local` variables within functions. Make global variables `readonly`.
 - Form - Always use `${var}` form, not `$var`.
@@ -71,7 +71,7 @@ popd
   - Local: `${lower_case}`
 - Subprocesses - Be aware that variables set in subprocesses do not persist (e.g. in some piping loops). Use stdout/grep for communication.
 
-## 4. Functions & Abstraction
+## Functions & Abstraction
 
 - Single Responsibility Principle (SRP) - Each function should do exactly one thing.
 - Don't mix levels of abstraction.
@@ -104,7 +104,7 @@ help_wanted() {
   fi
 ```
 
-## 5. Substitution & Redirection
+## Substitution & Redirection
 
 - **Command Substitution** - Always use `$(cmd)` instead of backquotes.
 - **Overrides** - Prepend with `\` to override alias/builtin lookup: `\time bash -c "..."`.
@@ -113,7 +113,7 @@ help_wanted() {
 - **Heredocs** - Name tags meaningfully (`<<HELPMSG`) and single-quote them (`<<'MSG'`) to prevent interpolation if not needed.
 - **Sudo Redirection** - Use `printf "..." | sudo tee /path/to/file > /dev/null`.
 
-## 6. Cleanup Code
+## Cleanup Code
 
 Always implement a `finish` function with an exit trap:
 ```bash
@@ -124,3 +124,7 @@ finish() {
 }
 trap finish EXIT ERR
 ```
+
+## Running
+
+Don't attempt to run the scripts before asking the user to confirm first.

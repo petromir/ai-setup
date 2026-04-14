@@ -32,6 +32,17 @@ By default, the script installs to **all** assistants and skips existing skills.
 ./common/scripts/install-skills.sh -f -a claude,copilot
 ``` 
 
+## Agents comparison
+
+| Agent          | Installation | Configuration |
+|----------------|--------------|---------------|
+| Gemini CLI     |              |               |
+| GitHub Copilot |              |               |
+| OpenCode       |              |               |
+| Claude Code    |              |               |
+| Hermes Agent   |              |               |
+
+
 ## Contributing
 
 Contributions are welcome! Please see [CONTRIBUTING.md](CONTRIBUTING.md) for simple rules and how to get started.

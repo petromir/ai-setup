@@ -1,0 +1,12 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "model": "opencode-go/qwen3.6-plus",
+  "small_model": "opencode-go/qwen3.5-plus",
+  "instructions": ["AGENTS.md"],
+  "snapshot": true,
+  "autoupdate": true,
+  "share": "manual",
+  "permission": {
+    "*": "ask"
+  }
+}

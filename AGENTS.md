@@ -8,4 +8,5 @@ This repository serves as a centralized hub for configuring, extending, and orch
 - **[Gemini](/gemini)**: Specialized skills, `.geminiignore` patterns, and project-specific instructions for Gemini CLI.
 - **[GitHub Copilot](/github)**: Workspace-level instructions (`.github/copilot-instructions.md`) and configuration 
   for Copilot Extensions.
-- **[Common](/common)**: Shared prompt templates, cross-platform scripts, and universal skills
+- **[OpenCode](/opencode)**: Configurations, skills, and instruction files for the `opencode` CLI.
+- **[Common](/common)**: Shared prompt templates, cross-platform scripts, and universal ski

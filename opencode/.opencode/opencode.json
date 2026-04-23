@@ -7,6 +7,18 @@
   "autoupdate": true,
   "share": "manual",
   "permission": {
-    "*": "ask"
+    "read": {
+      "*": "allow"
+    },
+    "glob": {
+      "*": "allow"
+    },
+    "bash": {
+      "*": "ask",
+      "mkdir*": "allow",
+      "ls*": "allow",
+      "cat*": "allow",
+      "grep*": "allow"
+    }
   }
 }

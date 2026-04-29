@@ -18,7 +18,9 @@
       "mkdir*": "allow",
       "ls*": "allow",
       "cat*": "allow",
-      "grep*": "allow"
+      "grep*": "allow",
+      "find*": "allow",
+      "sort*": "allow"
     }
   }
 }

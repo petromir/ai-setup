@@ -1,7 +1,5 @@
 {
   "$schema": "https://opencode.ai/config.json",
-  "model": "opencode-go/qwen3.6-plus",
-  "small_model": "opencode-go/qwen3.5-plus",
   "instructions": ["AGENTS.md"],
   "snapshot": true,
   "autoupdate": true,
@@ -20,7 +18,11 @@
       "cat*": "allow",
       "grep*": "allow",
       "find*": "allow",
-      "sort*": "allow"
+      "sort*": "allow",
+      "head*": "allow",
+      "tail*": "allow",
+      "bash -n*": "allow",
+      "shellcheck*": "allow"
     }
   }
 }

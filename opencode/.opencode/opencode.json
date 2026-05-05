@@ -24,5 +24,11 @@
       "bash -n*": "allow",
       "shellcheck*": "allow"
     }
+  },
+  "agent": {
+    "java-modernizer": {
+      "description": "Modernizes Java projects",
+      "mode": "subagent"
+    }
   }
 }

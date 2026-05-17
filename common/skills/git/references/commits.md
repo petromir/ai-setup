@@ -35,21 +35,29 @@ The commit message should be structured as follows:
 
 ### Body
 
+1. A longer commit body MAY be provided after the short description, providing additional contextual information about 
+the code changes. The body MUST begin one blank line after the description.
+2. A commit body is free-form and MAY consist of any number of newline-separated paragraphs.
+
 ### Footer
 
-6. A longer commit body MAY be provided after the short description, providing additional contextual information about the code changes. The body MUST begin one blank line after the description.
-7. A commit body is free-form and MAY consist of any number of newline-separated paragraphs.
-8. One or more footers (other than `BREAKING CHANGE: <description>`) MAY be provided one blank line after the body. Each footer MUST consist of a word token, followed by either a `:<space>` or `<space>#` separator, followed by a string value
-9. A footer’s token MUST use `-` in place of whitespace characters, e.g., `Acked-by` (this helps differentiate the footer section from a multi-paragraph body). An exception is made for `BREAKING CHANGE`, which MAY also be used as a token.
-10. A footer’s value MAY contain spaces and newlines, and parsing MUST terminate when the next valid footer token/separator pair is observed.
-11. Breaking changes MUST be indicated in the type/scope prefix of a commit, or as an entry in the footer.
-12. If included as a footer, a breaking change MUST consist of the uppercase text BREAKING CHANGE, followed by a colon, space, and description, e.g., *BREAKING CHANGE: environment variables now take precedence over config files*.
-15. The units of information that make up Conventional Commits MUST NOT be treated as case-sensitive by implementors, with the exception of BREAKING CHANGE which MUST be uppercase.
-16. `BREAKING-CHANGE` MUST be synonymous with `BREAKING CHANGE`, when used as a token in a footer.
-18. Conventional Commits does not make an explicit effort to define revert behavior. Instead, we leave it to tooling
+1. One or more footers MAY be provided one blank line after the body. Each footer MUST consist of a word token, 
+   followed by either a `:<space>` or `<space>#` separator, followed by a string value
+2. A footer’s token MUST use `-` in place of whitespace characters, e.g., `Acked-by` (this helps differentiate the 
+   footer section from a multi-paragraph body). An exception is made for `BREAKING CHANGE`, which MAY also be used as a token.
+3. A footer’s value MAY contain spaces and newlines, and parsing MUST terminate when the next valid footer 
+   token/separator pair is observed.
+4. Breaking changes MUST be indicated as:
+   - uppercase text `BREAKING CHANGE:` entry in the footer, followed by a colon, space, and description, e.g., 
+     `BREAKING CHANGE: environment variables now take precedence over config files`.
+   - or by appending a `!` after the type/scope. A BREAKING CHANGE can be part of commits of any *type*.
+5. `BREAKING-CHANGE` MUST be synonymous with `BREAKING CHANGE`, when used as a token in a footer.
+
+## Generic
+1. Conventional Commits does not make an explicit effort to define revert behavior. Instead, we leave it to tooling
     authors to use the flexibility of `types` and `footers` to develop their logic for handling reverts.
-19. Acommit that has a `BREAKING CHANGE:` footer, or appends a `!` after the type/scope, introduces a breaking API 
-    change. A BREAKING CHANGE can be part of commits of any *type*.
+2. The units of information that make up Conventional Commits MUST NOT be treated as case-sensitive by implementors, 
+   with the exception of BREAKING CHANGE which MUST be uppercase.
 
 ## Examples
 

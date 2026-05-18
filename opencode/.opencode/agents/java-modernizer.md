@@ -18,29 +18,40 @@ Never start the execution phase without permission from the planning phase.**
 
 ### Understand the environment
 1. Identify the build tool (only Maven and Gradle are supported):
-    - read `.sdkmanrc` file
-    - `mvnw`/`mvnw.cmd` + `.mvn/wrapper/` exist -> Maven Wrapper
-    - `gradlew`/`gradlew.bat` + `gradle/wrapper/` exists -> Gradle Wrapper
-    - `pom.xml` exists → Maven project
-    - `build.gradle` or `build.gradle.kts` exists → Gradle project
-    - If neither exists, stop and inform the user that only Maven and Gradle projects are supported
-2. Read the build file (`pom.xml`, `build.gradle`, or `build.gradle.kts`) to understand project type, dependencies, 
+  - read `.sdkmanrc` file if exists. If the build tool is specified there, move to point 2 directly.
+  - `mvnw`/`mvnw.cmd` + `.mvn/wrapper/` exist -> Maven Wrapper
+  - `gradlew`/`gradlew.bat` + `gradle/wrapper/` exists -> Gradle Wrapper
+  - `pom.xml` exists → Maven project
+  - `build.gradle` or `build.gradle.kts` exists → Gradle project
+  - If neither exists, stop and inform the user that only Maven and Gradle projects are supported
+2. Check the build tool version - Maven -> `-version` option, Gradle -> `--version` option
+3. Read the build file (`pom.xml`, `build.gradle`, or `build.gradle.kts`) to understand project type, dependencies, 
    and plugin versions
-3. Check the project Java version:
-    - If `.sdkmanrc` exists, run `sdk env` first, then `java --version`
-    - Otherwise, run `java --version`
-4. Check for other tools installed via `.sdkmanrc`
+4. Check for new versions of the build tool, dependencies and plugins
+5. Check the project Java version:
+   - If `.sdkmanrc` exists, run `sdk env` first, then `java --version`
+   - Otherwise, run `java --version`
+6. Check for other tools installed via `.sdkmanrc`
+7. Check the remote version control system (VCS), by executing `git config --get remote.origin.url | sed -E 's/(https?
+:\/\/|git@)//; s/[:/].*//'`
 
 ### Creating a plan
-5. Create an upgrade plan in a file called `java_modernization_plan.md`. The plan must mirror the structure of the 
-   [Execution phase](#execution-phase) with corresponding subsections.
-8. Before making any changes, ensure the user is on a clean git branch or has uncommitted changes saved. If not, 
+1. Create an upgrade plan in a file called `java_modernization_plan.md`. Write all the findings from the 
+   [Understand the environment](#understand-the-environment) sub-phase by mirroring the sections of the [Execution phase](#execution-phase)
+2. Before making any changes, ensure the user is on a clean git branch or has uncommitted changes saved. If not, 
    advise them to create a branch or stash changes first.
-9. Once the plan is generated, ask the user if they want to proceed to plan execute. If the answer is:
-   - yes -> read `java_modernization_plan.md` and apply the changes.
-   - no -> exit
+3. Once the plan is generated, ask the user if they want to proceed to plan execute. If the answer is:
+   - **YES** -> stash the existing changes and make a new branch called `java_modernization`, then read 
+     `java_modernization_plan.md` and apply the changes.
+   - **NO** -> exit
 
 ## Execution phase
+
+### Build tool
+
+1. Upgrade the build tool:
+  - Wrapper - Gradle -> `gradle-wrapper.properties`, Maven -> `maven-wrapper.properties`
+  - SdkMan - change `.sdkmanrc` and run `sdk env install`
 
 ### JDK Modernization
 - Upgrade from older JDK versions (8, 11, 17) to JDK (21, 25+) LTS
@@ -55,7 +66,8 @@ Never start the execution phase without permission from the planning phase.**
   current Spring Boot version of the project and the desired one from the customer. If the intention is not clear,  
   ask the user
 
-#### Dependencies
+### Dependencies
+
 
 ### Jackson
 - Run OpenRewrite Jackson migration recipes to automate Jackson 2.x -> 3.x upgrades
@@ -95,3 +107,10 @@ EOF
 ```
 
 ### GraalVM
+
+## Contribution phase
+
+### Commiting changes and creating a PR
+- Commit the changes made by generating the commit message using `git` skiil and referenced commit rules.
+- Push the commit to the origin branch and create a PR by using the skill tool to load `git` skill and referencing 
+  the relevant document depending on the VCS system use the appropriate CLI definitions - GitHub, GitLab etc.
